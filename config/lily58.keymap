@@ -34,7 +34,7 @@
                     * |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   -   |
                     * |  ESC  |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
                     * | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-                    *                     | ALT  | GUI  | CTRL |  SPACE |  | ENTER | RAISE| HYPER | GUI   |
+                    *                     | ALT  | GUI  | CTRL |  SPACE |  | ENTER | TRNS | HYPER | GUI   |
                     */
             display-name = "Base";
             bindings = <
@@ -42,7 +42,7 @@
                 &kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                      &kp Y  &kp U    &kp I     &kp O   &kp P    &kp MINUS
                 &kp ESC   &kp A  &kp S  &kp D    &kp F    &kp G                      &kp H  &kp J    &kp K     &kp L   &kp SEMI &kp SQT
                 &kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B  &kp LBKT   &kp RBKT &kp N  &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                                    &kp LALT &kp LGUI &kp LCTRL &kp SPACE   &kp RET  &mo 1  &hyper   &kp LGUI
+                                    &kp LALT &kp LGUI &kp LCTRL &kp SPACE   &kp RET  &trans &hyper   &kp LGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -52,16 +52,16 @@
                     * ------------------------------------------------------------------------------------------------------------
                     * | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   | MUTE | VOLDN | VOLUP | BRIDN| BRIUP |  DEL  |
                     * |   ~   |  !  |  @  |  #   |  $   |  %   |                   |  ^   |   &   |   *   |  (   |   )   |       |
-                    * |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  <-  |   v   |   ^   |  ->  |       |       |
-                    * |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   =   |   |   |  \   |       |       |
+                    * |       |     |     |      |      |      |                   |  <-  |   v   |   ^   |  ->  |       |       |
+                    * |       |     |     |      |      |      |        |  |       |      |   =   |   +   |  |   |  \   |       |
                     *                     |      |      |      |        |  |       |      |       |       |
                     */
             display-name = "Raise";
             bindings = <
                 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp C_MUTE  &kp C_VOL_DN &kp C_VOL_UP &kp C_BRI_DN &kp C_BRI_UP &kp DEL
                 &kp TILDE &kp EXCL &kp AT   &kp HASH &kp DLLR &kp PRCNT               &kp CARET   &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR  &trans
-                &kp F1    &kp F2 &kp F3 &kp F4  &kp F5  &kp F6                       &kp LEFT    &kp DOWN  &kp UP    &kp RIGHT &trans    &trans
-                &kp F7    &kp F8 &kp F9 &kp F10 &kp F11 &kp F12   &trans   &trans    &kp KP_PLUS &kp EQUAL &kp PIPE  &kp BSLH &trans    &trans
+                &trans    &trans &trans &trans  &trans  &trans                       &kp LEFT    &kp DOWN  &kp UP    &kp RIGHT &trans    &trans
+                &trans    &trans &trans &trans  &trans  &trans   &trans   &trans    &trans       &kp EQUAL &kp KP_PLUS &kp PIPE &kp BSLH &trans
                                         &trans  &trans  &trans    &trans   &trans    &trans      &trans    &trans
             >;
 
