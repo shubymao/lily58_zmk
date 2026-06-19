@@ -5,8 +5,40 @@ on:
     branches:
       - main
   pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
   build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Build 1: Official Upstream ZMK
+          - name: standard-zmk
+            zmk_repo: zmkfirmware/zmk
+            zmk_branch: main
+            
+          # Build 2: Nick Conway's Fork
+          - name: custom-macros
+            zmk_repo: nickconway/zmk
+            zmk_branch: main # <-- Change this to his specific macro branch if it isn't main
+
+    name: Build (${{ matrix.name }})
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
+    with:
+      # Inject the custom matrix parameters dynamically into the ZMK builder
+      zmk_repo: ${{ matrix.zmk_repo }}
+      zmk_branch: ${{ matrix.zmk_branch }}
+# old version
+#on:
+#  push:
+#    branches:
+#      - main
+#  pull_request:
+#  workflow_dispatch:
+#
+#jobs:
+#  build:
+#    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
